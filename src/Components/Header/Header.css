@@ -1,0 +1,8 @@
+.link{
+    text-decoration: none;
+    color: black;
+    margin: 0 1rem;
+}
+.appBar{
+    background-color: lightslategrey;
+}

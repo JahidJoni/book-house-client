@@ -1,0 +1,11 @@
+.form{
+    margin: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
+    background-color: rgb(228, 228, 228);
+    border: 1px solid lightblue;
+    border-radius: 0.3rem;
+}
+.file{
+    margin: 0.5rem 1rem;
+    padding: 0.3rem 0.5rem;
+}

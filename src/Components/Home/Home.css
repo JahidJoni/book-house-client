@@ -1,0 +1,13 @@
+.cards{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 1.5rem 0.8rem;
+    margin-top: 5rem;
+}
+
+.book-card{
+    max-height: 320px;
+}
+.card-body{
+    background-color: rgb(230, 230, 230);
+}

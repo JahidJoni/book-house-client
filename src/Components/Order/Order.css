@@ -1,0 +1,21 @@
+.order-info{
+    text-align: center;
+    margin: 5rem;;
+}
+table, th, td {
+    padding: 1rem 2rem;
+  }
+  table, th{
+      border: 1px solid lightgray;
+  }
+  table{
+      background-color: rgba(93, 255, 93, 0.274);
+      border-radius: 0.5rem;
+  }
+  .checkBtn{
+      padding: 0.5rem 2rem;
+      margin: 1rem;
+      background-color: rgb(57, 235, 117);
+      border: 1px solid lawngreen;
+      border-radius: 0.2rem;
+  }
