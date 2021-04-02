@@ -12,6 +12,7 @@ import Login from './Components/Login/Login';
 import { createContext, useState } from 'react';
 import Order from './Components/Order/Order';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import OrderInfo from './Components/OrderInfo/OrderInfo';
 
 export const UserContext = createContext();
 
@@ -38,6 +39,10 @@ function App() {
           <PrivateRoute path="/order/:id">
             <Order></Order>
           </PrivateRoute>
+
+          <Route path="/order-info">
+            <OrderInfo></OrderInfo>
+          </Route>
 
           <Route exact path="/">
             <Home/>

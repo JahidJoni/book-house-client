@@ -1,13 +1,25 @@
 .cards{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 318px 318px 318px 318px;
     grid-gap: 1.5rem 0.8rem;
     margin-top: 5rem;
-}
-
-.book-card{
-    max-height: 320px;
+    margin-left: 2rem;
 }
 .card-body{
     background-color: rgb(230, 230, 230);
+}
+.check-btn{
+    text-decoration: none;
+    background-color: rgb(3, 223, 149);
+    padding: 0.3rem 1rem;
+    border-radius: 0.3rem;
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+    .cards{
+        display: grid;
+        grid-template-columns: 300px;
+    }
 }

@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import './Home.css'
-import { Container } from '@material-ui/core';
+import { Container, LinearProgress } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 
@@ -26,7 +26,7 @@ const Home = () => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/books')
+        fetch('https://boiling-meadow-65353.herokuapp.com/books')
             .then(res => res.json())
             .then(data => {
                 setBooks(data)
@@ -34,9 +34,11 @@ const Home = () => {
     }, [])
 
     return (
-        <div className="">
-
-        <div className="cards container">
+        <div>
+            {
+                books.length === 0 && <div ><LinearProgress centered/></div>
+            }
+        <div className="cards">
             {
                 books.map(book => <Container className="book-card">
                     <Card className='book-card'>
@@ -51,15 +53,15 @@ const Home = () => {
                                     {book.name}
                                 </Typography>
                                 <Typography gutterBottom variant="p" component="p">
-                                    {book.author}
+                                   By: {book.author}
                                 </Typography>
                                 <Typography gutterBottom variant="p" component="p">
-                                    {book.price}
+                                    {book.price} tk.
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
                         <CardActions className="card-body">
-                            <Link to={`/order/${book._id}`}>Check Out</Link>
+                            <Link to={`/order/${book._id}`} className="check-btn">Check Out</Link>
                         </CardActions>
                     </Card>
                 </Container>)

@@ -1,4 +1,4 @@
-import { CssBaseline, Divider, Drawer, ListItem, ListItemIcon, ListItemText,} from '@material-ui/core';
+import { CssBaseline, Divider, Drawer} from '@material-ui/core';
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AddBox, Dashboard, EditOutlined } from '@material-ui/icons';
@@ -43,7 +43,7 @@ const AddBook = () => {
               imageURL: imageURL
           }
 
-          const url = `http://localhost:5000/addBook`
+          const url = `https://boiling-meadow-65353.herokuapp.com/addBook`
           console.log(bookData);
 
           fetch(url, {
@@ -87,18 +87,13 @@ const AddBook = () => {
                     <Divider />
                    <Link to="/manageBook" className="sideBar"> <Dashboard></Dashboard> Manage Books </Link>
 
-                    <ListItem button>
-                        <ListItemIcon> <AddBox /> </ListItemIcon>
-                        <ListItemText primary="Add Books" />
-                    </ListItem>
+                   <Link className="sideBar"> <AddBox/> Add Books </Link>
 
-                    <ListItem button>
-                        <ListItemIcon> <EditOutlined /> </ListItemIcon>
-                        <ListItemText primary="Edit Books" />
-                    </ListItem>
+                   <Link  className="sideBar"> <EditOutlined></EditOutlined> Manage Books </Link>
                     <Divider />
                 </Drawer>
                 <main className={classes.content}>
+                    <h3>Use all this field to add a new book on database-</h3>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <input name="name" placeholder="Book Name" className='form' ref={register} />

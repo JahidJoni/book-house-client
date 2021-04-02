@@ -33,10 +33,6 @@ const Login = () => {
                 history.replace(from)
                 setNewUser(signedInUser)
             }).catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                var email = error.email;
-                var credential = error.credential;
             });
 
     }

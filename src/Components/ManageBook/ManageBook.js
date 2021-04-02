@@ -2,7 +2,7 @@ import { AddBox, Dashboard, EditOutlined } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, CssBaseline, Divider, Drawer } from '@material-ui/core';
+import { CssBaseline, Divider, Drawer, LinearProgress } from '@material-ui/core';
 import './ManageBook.css'
 const drawerWidth = 240;
 
@@ -40,7 +40,7 @@ const ManageBook = () => {
     const [deleteBook, setDeleteBook] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/books')
+        fetch('https://boiling-meadow-65353.herokuapp.com/books')
             .then(res => res.json())
             .then(data => {
                 setBooks(data)
@@ -50,7 +50,7 @@ const ManageBook = () => {
     const handleDelete = (id) => {
         const remainingBooks = deleteBook.filter(items => items._id !== id);
 
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://boiling-meadow-65353.herokuapp.com/delete/${id}`, {
             method: "DELETE",
         })
             .then(res => {
@@ -63,6 +63,9 @@ const ManageBook = () => {
 
     return (
         <div>
+             {
+                books.length === 0 && <div style={{width: '100%'}}><LinearProgress /></div>
+              }
             <div className={classes.root}>
                 <CssBaseline />
                 <Drawer
@@ -84,14 +87,22 @@ const ManageBook = () => {
 
                 <main className={classes.content}>
                     <h2>Books on Stock-</h2>
+                    <table>
+                        <tr>
+                            <th>Book Name</th>
+                            <th>Author Name</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
                     {
-                        books.map(book =>
-                            <div style={{ height: 60, width: '100%' }}>
-                                <li>{book.name} by {book.author} ${book.price} </li>
-                                <Button size="small" variant="outlined" color="secondary" style={{ marginLeft: 20 }} onClick={() => handleDelete(book._id)}>Remove</Button>
-                                <Button size="small" variant="outlined" color="primary" style={{ marginLeft: 20 }}>Edit</Button>
-                            </div>)
+                        books.map(book=> <tr>
+                            <td>{book.name}</td>
+                            <td>{book.author}</td>
+                            <td>{book.price}</td>
+                            <td><button onClick={() => handleDelete(book._id)}>Delete</button> <button>Edit</button> </td>
+                        </tr>)
                     }
+                        </table>
                 </main>
             </div>
         </div>
