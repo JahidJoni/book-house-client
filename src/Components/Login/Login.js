@@ -5,6 +5,8 @@ import firebase from "firebase/app";
 import { UserContext } from '../../App';
 import { Button } from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fab, faGoogle } from '@fortawesome/free-brands-svg-icons'
 
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -46,20 +48,9 @@ const Login = () => {
             </h3>
             <div style={{ textAlign: 'center' }}>
             <Button onClick={handleGoogleSignIn} variant="outlined" color="primary" href="#outlined-buttons">
-                {
-                    !newUser ? 'Log In with Google' : 'Log Out'
-                }
+            <FontAwesomeIcon icon={faGoogle}/>  Sign in with google
             </Button>
             </div>
-
-            {
-
-                newUser && <div style={{ textAlign: 'center' }}>
-                    <h5>Welcome, {newUser.name}!</h5>
-                    <img src={newUser.photoURL} alt="" />
-                </div>
-
-            }
         </div>
     );
 };

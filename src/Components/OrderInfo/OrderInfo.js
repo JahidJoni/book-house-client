@@ -1,4 +1,3 @@
-import { LinearProgress } from '@material-ui/core';
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
 import './OrderInfo.css'

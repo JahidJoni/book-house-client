@@ -24,13 +24,13 @@ function App() {
       <Header></Header>
         <Switch>
 
-          <Route path="/addBook">
+          <PrivateRoute path="/addBook">
             <AddBook></AddBook>
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/manageBook">
+          <PrivateRoute path="/manageBook">
             <ManageBook></ManageBook>
-          </Route>
+          </PrivateRoute>
 
           <Route path="/login">
             <Login></Login>
@@ -40,9 +40,9 @@ function App() {
             <Order></Order>
           </PrivateRoute>
 
-          <Route path="/order-info">
+          <PrivateRoute path="/order-info">
             <OrderInfo></OrderInfo>
-          </Route>
+          </PrivateRoute>
 
           <Route exact path="/">
             <Home/>

@@ -6,7 +6,7 @@
     margin-left: 2rem;
 }
 .card-body{
-    background-color: rgb(230, 230, 230);
+    background-color: rgba(230, 230, 230, 0.808);
 }
 .check-btn{
     text-decoration: none;

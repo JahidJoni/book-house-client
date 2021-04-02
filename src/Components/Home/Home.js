@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import './Home.css'
 import { Container, LinearProgress } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 
 const useStyles = makeStyles({
@@ -61,7 +63,7 @@ const Home = () => {
                             </CardContent>
                         </CardActionArea>
                         <CardActions className="card-body">
-                            <Link to={`/order/${book._id}`} className="check-btn">Check Out</Link>
+                            <Link to={`/order/${book._id}`} className="check-btn">Check Out  <FontAwesomeIcon icon={faShoppingCart} /></Link>
                         </CardActions>
                     </Card>
                 </Container>)
